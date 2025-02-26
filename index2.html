@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+  <style>
+    *{
+        background-color: black;
+    }
+    body {
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .icon-container {
+      width: 200px;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .icon-wrapper {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .icon-wrapper.active {
+      opacity: 1;
+    }
+
+    .icon-wrapper i,
+    .icon-wrapper svg {
+      font-size: 50px;
+      margin-bottom: 10px;
+      color: #d8e5ee;
+    }
+
+    .username {
+      font-size: 18px;
+      color: #d8e5ee;
+      font-family: "Black Han Sans", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .kick-icon {
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+  <title>Rotating Social Icons</title>
+</head>
+
+<body>
+  <div class="icon-container">
+    <div class="icon-wrapper active">
+      <i class="fa-brands fa-twitch"></i>
+      <div class="username">@Dhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <svg class="kick-icon" viewBox="0 0 933 300" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_9790_492437)">
+          <g clip-path="url(#clip1_9790_492437)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H100V66.6667H133.333V33.3333H166.667V0H266.667V100H233.333V133.333H200V166.667H233.333V200H266.667V300H166.667V266.667H133.333V233.333H100V300H0V0ZM666.667 0H766.667V66.6667H800V33.3333H833.333V0H933.333V100H900V133.333H866.667V166.667H900V200H933.333V300H833.333V266.667H800V233.333H766.667V300H666.667V0ZM300 0H400V300H300V0ZM533.333 0H466.667V33.3333H433.333V266.667H466.667V300H533.333H633.333V200H533.333V100H633.333V0H533.333Z" fill="#d8e5ee" />
+          </g>
+        </g>
+      </svg>
+      <div class="username">@Dhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-x-twitter"></i>
+      <div class="username">@thedhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-tiktok"></i>
+      <div class="username">@thedhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-youtube"></i>
+      <div class="username">@Dhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div class="username">@Dhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-facebook"></i>
+      <div class="username">@thedhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-instagram"></i>
+      <div class="username">@thedhyaz</div>
+    </div>
+    <div class="icon-wrapper">
+      <i class="fa-brands fa-reddit"></i>
+      <div class="username">r/dhyaz</div>
+    </div>
+  </div>
+
+  <script>
+    const wrappers = document.querySelectorAll('.icon-wrapper');
+    let currentIndex = 0;
+
+    function showNextIcon() {
+      wrappers[currentIndex].classList.remove('active');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % wrappers.length;
+        wrappers[currentIndex].classList.add('active');
+      }, 1000); // Espera 1 segundo para que la animación de desvanecimiento termine antes de cambiar
+    }
+    setInterval(showNextIcon, 8000);
+  </script>
+</body>
+
+</html>
